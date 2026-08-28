@@ -33,6 +33,7 @@ export const testRunStatusSchema = z.enum([
 ]);
 
 export const testRunSchema = z.object({
+  id: z.string().trim().min(1, "运行记录Id不能为空"),
   status: testRunStatusSchema,
   results: z.array(testItemResultSchema),
   report: testReportSchema.optional(),
